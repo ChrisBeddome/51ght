@@ -1,0 +1,622 @@
+/***************** color variables ********************/
+
+:root {
+  --darkPurple: #111;
+  --midtonePurple: #555555;
+  --palePurple: #777;
+  --purpleWhite: #B7B7B7;
+  --purpleWhiteHighlight: #E7E7E7;
+  --white: #F5F5F5;
+  --highlightGreen: #A9FF31;
+  --highlightPurpleDark: #2A2A2A;
+  --transparentDark: #222;
+  --transparentDarker: #1B1B1B;
+  --transparentReal: rgba(10, 10, 10, 0.4);
+}
+
+/************************* global ********************/
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--palePurple);
+  font-family: 'Mina', sans-serif;
+  font-size: 12px;
+  background-color: #1a1a1a;
+  line-height: 20px;
+}
+
+#app {
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  color: var(--purpleWhiteHighlight);
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  color: var(--purpleWhiteHighlight);
+}
+
+hr {
+  margin: 20px 0;
+  border-color: var(--midtonePurple);
+}
+
+input[type="text"] {
+  font-size: 40px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: center;
+  color: var(--white);
+  font-weight: lighter;
+  font-family: 'Mina', sans-serif;
+}
+
+textarea {
+  resize: none;
+  background-color: var(--transparentReal);
+  width: 100%;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  color: var(--white);
+  font-family: 'Mina', sans-serif;
+  height: 22em;
+  box-shadow: 0 0 10px #111;
+}
+
+button {
+  padding: 5px;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: var(--highlightPurpleDark);
+  color: var(--purpleWhiteHighlight);
+  transition: border .15s ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-shadow: 0px 0px 2px #000;
+  border-left: 0px solid #000;
+  position: relative;
+  margin-top: 10px;
+  font-family: "Mina", sans-serif;
+  font-size: 14px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 40px;
+  background: var(--highlightGreen);
+  border-radius: 3px 0 0 3px;
+  transition: all 0.20s ease;
+}
+
+button:hover::before {
+  width: 10px;
+}
+
+.highlightP {
+  color: #A9FF31;
+  cursor: pointer;
+}
+
+/***************** navigation *****************/
+
+#nav {
+  height: 100%;
+  width: 70px;
+  background-color: var(--transparentDark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 0px 5px #111;
+  z-index: 5;
+  overflow: hidden;
+}
+
+#nav img {
+  width: 25px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navIcon {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.navSelected {
+  background-color: var(--transparentDarker);
+}
+
+.navSelected::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--highlightGreen);
+  animation: navHighlightBorderIn .2s ease-in-out;
+}
+
+@keyframes navHighlightBorderIn {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.navIcon p {
+  color: #A9FF31;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+/****************** sightings list ******************/
+
+#leftPanel {
+  background-color: var(--transparentDark);
+  height: 100%;
+  width: 300px;
+  box-shadow: -2px 0px 5px #111;
+  z-index: 5;
+}
+
+#sightingsContainer {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.sighting {
+  padding: 10px 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-shadow: 0px 0px 1px #000;
+}
+
+.sighting:hover {
+  background-color: var(--transparentDarker);
+}
+
+.sighting h3 {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: var(--purpleWhite);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sighting .textContain {
+  max-width: 180px;
+  float: right;
+  text-align: right;
+}
+
+.sighting img {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 50px;
+  filter: drop-shadow(0px 1px 1px #000);
+}
+
+.sighting .imageContain {
+  float: left;
+  max-width: 70px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sighting::after {
+  content: "";
+  width: 90%;
+  height: 1px;
+  background-color: var(--highlightPurpleDark);
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+}
+
+.active {
+  background-color: var(--transparentDarker);
+}
+
+.active .textContain h3 {
+  color: var(--purpleWhiteHighlight);
+  text-shadow: 1px 1px 3px #000;
+}
+
+.active .textContain span {
+  color: var(--purpleWhite);
+}
+
+/*************** map **************/
+
+#mapPanel {
+  background-color: var(--darkPurple);
+  flex: 1;
+}
+
+.mapTopMargin {
+  margin-top: 60px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #1a1a1a;
+}
+
+/************** add sighting panel ***********/
+
+#addPanel {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+}
+
+#addPanelNav {
+  position: absolute;
+  top: 0;
+  box-shadow: 0 3px 5px #111;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 15;
+  background-color: var(--transparentDarker);
+}
+
+#addPanelNav p {
+  color: var(--purpleWhiteHighlight);
+  font-size: 14px;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  margin-right: 80px;
+}
+
+.addNavIcon {
+  height: 20px;
+  width: 80px;
+  cursor: pointer;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.addNavIcon img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -10px);
+}
+
+.addNavIcon p {
+  color: var(--highlightGreen) !important;
+  text-align: center;
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#addSightingOverlay {
+  width: 100%;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  background-color: var(--transparentReal);
+}
+
+#addSightingTitle {
+  width: 100%;
+  background-color: var(--transparentReal);
+  padding: 20px 0px;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  animation: addTitleSlideFix 0.15s;
+  box-shadow: 0 0 10px #111;
+}
+
+#addSightingDesc {
+  width: 600px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#addSightingPhoto {
+  padding: 20px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--transparentReal);
+}
+
+#addSightingPhoto img {
+  max-width: 600px;
+  max-height: 400px;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#uploadButton {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  background-image: url("../images/uploadIcon.svg");
+  background-size: 100px 100px;
+  margin: auto;
+}
+
+#uploadButton:hover {
+  background-image: url("../images/uploadIconGreen.svg");
+}
+
+#addSightingPhoto input[type="file"] {
+  display: none;
+}
+
+#addPanel button {
+  display: block;
+  position: absolute;
+  top: 50px;
+  z-index: 15;
+  box-shadow: 0 3px 5px #111;
+  background-color: var(--transparentDark);
+}
+
+#loadingImgAdd {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 200px;
+}
+
+/*************** sighting details ***********/
+
+#sightingDetails {
+  width: 540px;
+  background-color: var(--transparentDarker);
+  color: var(--purpleWhite);
+  padding: 20px;
+  font-size: 14px;
+  box-shadow: -1px 0px 5px #111;
+  z-index: 3;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#sightingDetails img {
+  max-width: 100%;
+  max-height: 600px;
+  margin-bottom: 10px;
+}
+
+.commentContainer {
+  border-bottom: 1px solid var(--highlightPurpleDark);
+}
+
+.addCommentText {
+  height: 12em;
+  box-shadow: none;
+  margin-top: 20px;
+}
+
+.commentError {
+  transform: none !important;
+  top: 0 !important;
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+}
+
+/************* misc **********/
+
+#loadingImg {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+}
+
+.error {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 10, 0.5);
+}
+
+/************** animations **************/
+
+.navFade-enter-active,
+.navFade-leave-active {
+  transition: all .2s;
+}
+
+.navFade-leave-to {
+  margin-left: 80px !important;
+}
+
+.navFade-enter {
+  margin-left: -80px !important;
+}
+
+.addNavFade-enter-active,
+.addNavFade-leave-active {
+  transition: all 0.2s;
+}
+
+.addNavFade-leave-to {
+  margin-top: 80px !important;
+}
+
+.addNavFade-enter {
+  margin-top: -80px !important;
+}
+
+.addFade-enter-active,
+.addFade-leave-active {
+  transition: all .15s ease-in;
+}
+
+.addFade-enter {
+  top: 70% !important;
+  opacity: 0;
+}
+
+.addFade-leave-to {
+  top: 20% !important;
+  opacity: 0;
+}
+
+@keyframes addTitleSlideFix {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 45%;
+    opacity: 1;
+  }
+}
+
+/******************* mobile ***************/
+
+@media screen and (max-width: 800px) {
+  #root {
+    flex-direction: column;
+  }
+  #nav {
+    height: 60px;
+    width: 100%;
+    flex-direction: row;
+    box-shadow: 0 0 1px #111;
+    order: 3;
+  }
+  .navIcon {
+    height: 100%;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+  }
+  .navSelected {
+    border-right: none;
+  }
+  .navSelected::after {
+    height: 1px;
+    width: 100%;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    animation: navHighlightBorderInMobile .2s ease-in-out;
+  }
+  @keyframes navHighlightBorderInMobile {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  #mapPanel {
+    flex: 2;
+    order: 1;
+  }
+  #leftPanel {
+    /* flex: 5;
+    background-color: var(--transparentDarker);
+    width: 100%;
+    box-shadow: 0 0 1px #111;
+    overflow: auto;
+    order: 2; */
+    display: none;
+  }
+  #sightingDetails {
+    flex: 5;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 0 1px #111;
+    order: 2;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .navFade-enter {
+    margin-top: 80px !important;
+    margin-left: 0px !important;
+  }
+  .navFade-leave-to {
+    margin-top: -80px !important;
+    margin-left: 0px !important;
+  }
+}

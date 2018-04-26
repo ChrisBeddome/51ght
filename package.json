@@ -1,0 +1,22 @@
+{
+  "name": "51ght",
+  "version": "1.0.0",
+  "description": "RESTful web app to tracks UFO sightings",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mongo": "mongod --nojournal --dbpath ./data/db",
+    "start": "nodemon server.js"
+  },
+  "author": "CuerdenBeddome inc",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "firebase-admin": "^5.9.0",
+    "mongoose": "^5.0.6",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.0",
+    "nodemon": "^1.15.0"
+  }
+}

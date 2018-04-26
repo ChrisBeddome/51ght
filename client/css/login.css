@@ -1,0 +1,180 @@
+:root {
+    --darkPurple: #121222;
+    --palePurple: #717189;
+    --midtonePurple: #555570;
+    --white: #F5F5F5;
+    --highlightGreen: #A9FF31;
+}
+
+body {
+    margin: 0;
+    background-color: var(--darkPurple);
+    color: var(--white);
+    font-family: 'Mina', sans-serif;
+}
+
+header {
+    margin: 0 auto;
+    width: 500px; 
+    padding-bottom: 30px;
+    max-width: 90%;
+}
+
+#logo {
+    filter: drop-shadow(5px 5px 5px #000);
+    width: 400px;
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+.userForm {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.userForm input {
+    margin: 0 auto;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    border-width: 0;
+    width: 267px;
+    height: 40px;
+    border-radius: 3px;
+    padding-left: 10px;
+    color: var(--midtonePurple);
+    background-color: var(--white);
+    border: 1px solid var(--palePurple);
+    transition: border 0.1s;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: 'Mina', sans-serif;
+    background-color: var(--white);
+}
+
+.userForm input:focus {
+    border: 1px solid var(--highlightGreen);
+    box-shadow: 0 0 10px 0px var(--highlightGreen);
+}
+
+button {
+    padding: 5px;
+    margin: 0 auto;
+    display: block;
+    width: 265px;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--midtonePurple);
+    color: var(--white);
+    transition: border .15s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-shadow: 0px 0px 2px #000;
+    font-size: 16px;
+    border-left: 0px solid #000;
+    position: relative;
+    max-width: 100%;
+    font-family: 'Mina', sans-serif;
+}
+
+button::before {
+    content:'';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 40px;
+    background: var(--highlightGreen);
+    border-radius: 3px 0 0 3px;
+    transition: all 0.20s ease;
+} 
+
+button:hover::before {
+    width: 10px;
+}
+
+
+#login {
+    display: block;
+}
+
+#register {
+    display: block;
+}
+
+
+#loginContainer {
+    animation: popIn 0.3s;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        padding-top: 12px;
+    }
+
+    100% {
+        opacity: 1;
+        padding-top: 0px;
+    }
+}
+
+
+#loadingImg {
+    display: block;
+    width: 160px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+span {
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    font-family: "Mina", sans-serif;
+    font-size: 12px;
+    color : var(--palePurple);
+    cursor: pointer;
+    width: 300px;
+    max-width: 80%;
+}
+
+#errorOutput {
+    color: #A9FF31;
+}
+
+.hr {
+    border-top: 1px solid var(--midtonePurple);
+    width: 240px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-width: 100%;
+}
+
+
+*:focus {
+    outline: none;
+}
+
+#root {
+    position: relative;
+    top: 50vh;
+    transform: translateY(-60%);
+    height: 400px;
+}
+
+@media screen and (max-height: 600px) {
+    #root {
+        top: 40px;
+        transform: none;
+    }
+}
