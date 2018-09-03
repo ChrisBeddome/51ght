@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mongo": "mongod --nojournal --dbpath ./data/db",
     "start": "nodemon server.js"
   },
   "author": "CuerdenBeddome inc",
