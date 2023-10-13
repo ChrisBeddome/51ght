@@ -4,7 +4,7 @@ Node application to document and discuss UFO sightings from around the world. Bu
 
 ![img1](./demo/1.png)
 ![img2](./demo/2.png)
-![gif](./demo/gif.gif)
+![gif](./demo/3.gif)
 
 todo: dockerize this thing and provide some setup instructions
 
